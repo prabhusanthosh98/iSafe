@@ -1,1 +1,58 @@
-<p>council-view works!</p>
+<section class="section">
+    <div class="columns">
+        <div class="column is-hidden-touch"></div>
+        <div class="column is-three-quarters-desktop">
+            <ul>
+                <li class="incidents" *ngFor="let item of ic; index as i;">
+
+                    <a class="button is-danger" (click)="makeCenter(item)"> <i [ngClass]="getfaClass(item.type)"
+                            class="fas"></i>
+                        {{item.name}}
+                    </a>
+                </li>
+                <li class="incidents">
+                    <a class="button is-danger" (click)="globalView()">Global View</a>
+                </li>
+            </ul>
+            
+
+            <div #mapCouncil id="mapCouncil"></div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><abbr title="Name">Incident</abbr></th>
+                        <th><abbr title="Civillians in Danger Zone">Civillians</abbr></th>
+                        <th><abbr title="Officials">Officials</abbr></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>{{selected_incident.name}}</th>
+                        <td>{{selected_incident.civilians}}</td>
+                        <td>{{selected_incident.officials}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><abbr title="Name">Safe Zone</abbr></th>
+                        <th><abbr title="Civillians in Safe Zone">Civillians</abbr></th>
+                        <th><abbr title="Officials">Officials</abbr></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let sz of selected_incident?.safe_zones;">
+                    <th>{{sz.name}}</th>
+                    <td>{{sz.civilians}}</td>
+                    <td>{{sz.officials}}</td>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="column is-hidden-touch"></div>
+    </div>
+</section>
+<br>
+<br>
+<br>

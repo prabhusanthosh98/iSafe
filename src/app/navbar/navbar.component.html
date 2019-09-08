@@ -1,9 +1,29 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-            <a class="navbar-item" routerLink="">
-                <img src="assets/logo.png" width="102" height="80">
-              </a>
+        <a class="navbar-item" routerLink="">
+            <img src="assets/logo.png" width="102" height="80">
+        </a>
         <a routerLink="" class="navbar-item" routerLinkActive="active">Home</a>
         <a routerLink="council" class="navbar-item" routerLinkActive="active">Council View</a>
     </div>
 </nav>
+
+
+<router-outlet></router-outlet>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>iSafe</strong> by <a href="">Team Soul</a>.
+        </p>
+        <ul>
+            <li>
+                <a href="">Contact Us</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Help</a></li>
+
+        </ul>
+
+    </div>
+</footer>
