@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+.navbar-item {
+    font-size: 20px;
+    font-weight: 700;
+}
