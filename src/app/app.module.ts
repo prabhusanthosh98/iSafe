@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { CouncilViewComponent } from './council-view/council-view.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,4 +22,10 @@ import { CouncilViewComponent } from './council-view/council-view.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    if (environment.google_analytics_token) {
+      (<any>window).ga('create', environment.google_analytics_token, 'auto');
+    }
+  }
+ }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MapsService } from '../maps.service';
 import { } from 'googlemaps';
+import { environment } from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-user-view',
@@ -14,6 +15,10 @@ export class UserViewComponent implements OnInit {
   selected_incident: any;
   constructor(private mapService: MapsService) {
     this.ic = mapService.getuserdata()
+    if (environment.google_analytics_token) {
+      (<any>window).ga('set', 'page', window.location.href);
+      (<any>window).ga('send', 'pageview');
+    }
   }
 
   getfaClass(i_type: string) {

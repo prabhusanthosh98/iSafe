@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { } from 'googlemaps';
 import { MapsService } from '../maps.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-council-view',
@@ -15,6 +16,10 @@ export class CouncilViewComponent implements OnInit {
   selected_incident: any;
   constructor(private mapService: MapsService) {
     this.ic = mapService.getuserdata()
+    if (environment.google_analytics_token) {
+      (<any>window).ga('set', 'page', window.location.href);
+      (<any>window).ga('send', 'pageview');
+    }
   }
 
   globalView() {
